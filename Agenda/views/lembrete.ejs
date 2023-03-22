@@ -21,8 +21,16 @@
     <br>
     <br><br>
     <div>
-        Lista de lembretes
+        <ul>
+            <% getLembrete.forEach((lembrete) => { %>
+                <li>
+                    <%= lembrete.nome %>
+                </li>
+            <% }) %>
+        </ul>
+        
     </div>
+    <button><a href="/conferir">conferir</a></button>
 
 
 

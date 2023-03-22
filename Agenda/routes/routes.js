@@ -3,6 +3,7 @@ const routesController = require("../controller/controler_lembrete")
 
 routes.get("/", routesController.displayLembrete)
 routes.post("/criarLembrete", routesController.criarLembrete)
+routes.get("/conferir", routesController.print)
 
 
 module.exports = routes

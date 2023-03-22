@@ -10,4 +10,4 @@ const lembreteSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("lembrete", lembreteSchema)
+module.exports = mongoose.model("insertLembrete", lembreteSchema)

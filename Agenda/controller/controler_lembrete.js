@@ -1,35 +1,41 @@
-const insert = require("../modules/infoLembrete")
+const Lembrete = require("../modules/infoLembrete")
 
+//const getLembrete = print()
 
-
-const displayLembrete = (req, res) => {
-    return res.render("lembrete.ejs")
+const print = async (req,res) => {
+    
+    
+    let lembretes = await Lembrete.find()
+    const organizeLembrete = Object.entries(lembretes)
+    res.send(`${ organizeLembrete}  ${typeof organizeLembrete}`)
 }
 
-const criarLembrete = (req,res) => {
+const displayLembrete = async (req, res) => {
+    
+    const getLembrete = await Lembrete.find()
+    return res.render("lembrete.ejs", {getLembrete})
+
+}
+
+const criarLembrete = async (req,res) => {
+    const lembrete = req.body
     const dateNow = new Date().toLocaleDateString().split('/').reverse()
     const dateLembrete = req.body.data.split('-')
    
     
-    if(dateLembrete[1]<dateNow[1] || dateLembrete[0]<dateNow[0]){
-        return res.send("data informada invalida")
-    }else if(dateLembrete[2]<dateNow[2] || dateLembrete[1]<dateNow[1]) {
-        return res.send("data informada invalida")
-    }else if(dateLembrete[1]>dateNow[1]){
-        return res.send("data valida")
+    if(req.body.nome.length == 0 || dateLembrete[0]<dateNow[0] || dateLembrete[1]<dateNow[1]){
+        res.send("data invalida + nome vazio")
+    }else if(dateLembrete[1]==dateNow[1] && dateLembrete[2]<dateNow[2] ){
+        res.send("data invalida")
     }else{
-        return res.send("data valida")
+        await Lembrete.create(lembrete)
+        res.redirect("/")
     }
-    
-
-//  dateLembrete[0]<dateNow[0] || dateLembrete[1]<dateNow[1] || dateLembrete[2]<dateNow[2]
-
-    
-    //res.send(` ${dateNow} ${ dateLembrete}`)
-
 }
+
 
 module.exports = {
     displayLembrete,
-    criarLembrete
+    criarLembrete,
+    print
 }
