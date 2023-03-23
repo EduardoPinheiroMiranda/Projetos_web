@@ -24,7 +24,7 @@
         <ul>
             <% getLembrete.forEach((lembrete) => { %>
                 <li>
-                    <%= lembrete.nome %>
+                    <%= lembrete.nome %>-:-<%=lembrete.data.toLocaleDateString() %>
                 </li>
             <% }) %>
         </ul>
