@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const lembreteSchema = new mongoose.Schema({
+const connect_DBLembrete = new mongoose.Schema({
     nome:{
         type: String,
         require: true
@@ -9,5 +9,4 @@ const lembreteSchema = new mongoose.Schema({
         require: true
     }
 })
-
-module.exports = mongoose.model("insertLembrete", lembreteSchema)
+module.exports = mongoose.model("Lembrete", connect_DBLembrete)

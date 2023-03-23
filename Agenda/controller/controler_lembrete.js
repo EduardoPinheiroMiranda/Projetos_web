@@ -2,35 +2,15 @@ const Lembrete = require("../modules/infoLembrete")
 
 
 const print = async (req,res) => {
-
     const lembretes = await Lembrete.find()
-    let organizarLembrete = []
-
-    lembretes.forEach((item) => {
-        organizarLembrete.push(item.data.toLocaleDateString().split("/"))
-    })
-    
-    organizarLembrete.sort()
-
-    //organizarLembrete[1].sort()
-    
-    organizarLembrete.forEach((item) => {
-        console.log(`${ item}`)
-    })
-
-
-    
-
-
-
-    
+    console.log(`${lembretes}`)
 }
 
 
 const displayLembrete = async (req, res) => {
-    
+
     const getLembrete = await Lembrete.find()
-    return res.render("lembrete.ejs", {getLembrete})
+    return res.render("lembrete.ejs",{getLembrete})
 
 }
 
