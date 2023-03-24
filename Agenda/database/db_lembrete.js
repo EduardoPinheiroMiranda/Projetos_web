@@ -10,7 +10,10 @@ const connect_DBlembrete = () => {
         console.log("Banco conectado.")
     }).catch( (erro) => {
         console.log("erro ao se conectar ao banco:" + erro)
+        
     })
 }
+
+
 
 module.exports = connect_DBlembrete
