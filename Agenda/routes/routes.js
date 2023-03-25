@@ -1,5 +1,5 @@
 const routes = require("express").Router()
-const rotas = require("../controller/lembretes")
+const rotas = require("../controller/Actions")
 
 routes.get("/home", rotas.display)
 
