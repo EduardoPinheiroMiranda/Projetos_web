@@ -11,6 +11,8 @@ const app = express()
 const port = 5500
 
 app.set("views engine", "ejs")
+app.locals.formatData
+
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded())
 app.use(routes)

@@ -1,16 +1,33 @@
 const DBroot = require("../model/model_BD_Lembrete")
 
-const formatData = async () => {
+const formatData = (Lembretes) => {
+    
+    let lembretes = JSON.parse(JSON.stringify(Lembretes))
+    lembretes.forEach((item) => {
+        item.data = item.data.slice(0,10).split("/").reverse()
+    })
+
+
+    
+
+    return lembretes
 
 }
 
 const display = async (req,res) => {
+    const lembretes = await DBroot.find()
+    const getLembrete = formatData(lembretes)
+    const dateNow = new Date().toLocaleDateString().split("/")
 
-    const getLembrete = await DBroot.find()
+    
+
     return res.render("lembretes.ejs", {
-        getLembrete,
+        getLembrete ,dateNow
     })
+
 }
+
+
 
 const create = async (req,res) => {
     const info = req.body
@@ -30,7 +47,15 @@ const create = async (req,res) => {
     }
 }
 
+const delet = async (req,res) => {
+
+    await DBroot.deleteOne({_id:req.params.id})
+    return res.redirect("/home")
+    
+}
+
 module.exports = {
     display,
-    create
+    create,
+    delet
 }
