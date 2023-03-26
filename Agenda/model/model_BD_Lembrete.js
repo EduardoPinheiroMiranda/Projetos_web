@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const createLembrete = new mongoose({
+const createLembrete = new mongoose.Schema({
     nome:{
         type: String,
         require: true

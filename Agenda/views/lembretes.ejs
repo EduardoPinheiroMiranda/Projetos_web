@@ -10,13 +10,31 @@
     <div>
         <h1>Lembrete</h1>
         <form action="/insertLembrete" method="post">
-            <input id="lembrete" type="text" placeholder="Nome Lemre">
-            <input id="data" type="date">
+            <input id="lembrete" name="nome" type="text" placeholder="Nome Lemre">
+            <input id="data" name="data" type="date">
             <button type="submit">criar</button>
         </form>
-        
-
-    
     </div>
+
+    <div>
+        <ul>
+            <% getLembrete.forEach((item) => {%>
+                <li>
+                    <%= item.nome %> --:-- <%=typeof item.data%>
+                </li>
+            <% }) %>
+        </ul>
+        <ul>
+            <% teste.forEach((item) => {%>
+                <li>
+                    <%= item.nome %> --:-- <%=item.data%>
+                </li>
+            <% }) %>
+        </ul>
+
+        <%= getLembrete %>
+    </div>
+
+
 </body>
 </html>
