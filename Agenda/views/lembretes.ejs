@@ -31,27 +31,8 @@
 
     <div>
         <h3>Teste de exibição:</h3>
-        
-        <% let data = []
-            data.push(dateNow[0]);
-            data.push(dateNow[1]);
-            data.push(dateNow[2])
-        %>
-
-        <% getLembrete.forEach((i) => { %>  
-            
-            <h3><%=data[0]%>/<%=data[1]%>/<%=data[2]%></h3>
-            <ul>
-                <% getLembrete.forEach((item) => { %>
-                    <% if(item.data[0] == data[0] && item.data[1] == data[1]){ %>
-                        <li>
-                            <%=item.nome %>
-                        </li>
-                    <% } %>
-                <% }) %>
-            </ul>
-                    
-        <% }) %>
+        <%= typeof dateNow[0] %>
+        <%= getLembrete.data.find(?dateNow) %>
               
             
 
