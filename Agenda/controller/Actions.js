@@ -4,7 +4,7 @@ const formatData = (Lembretes) => {
     
     let lembretes = JSON.parse(JSON.stringify(Lembretes))
     lembretes.forEach((item) => {
-        item.data = item.data.slice(0,10).split("/").reverse()
+        item.data = item.data.slice(0,10).split("-").reverse()
     })
 
 
