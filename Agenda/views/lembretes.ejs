@@ -31,21 +31,78 @@
 
     <div>
         <h3>Teste de exibição:</h3>
-        <%= typeof dateNow[0] %>
-        <%= getLembrete.data.find(?dateNow) %>
-              
-            
-
-
-                    
-
         
-          
+        <% let data = [];
+            data.push(parseInt(dateNow[0]));
+            data.push(parseInt(dateNow[1]));
+            data.push(parseInt(dateNow[2]));
+            let cont = 0
+        %>
+
+       
+        <% for(let i=0; i<getLembrete.length; i++){ %>
+
+            <% for(let j=0; j<getLembrete.length; j++){ %>
+                        
+                <% if(getLembrete[j].data[0] == data[0] && getLembrete[j].data[1] == data[1]){ %>
+                    
+                    <% if(data[0]<=31){ %>
+                        
+                        <h3><%=data[0]%>/0<%=data[1]%>/<%=data[2]%></h3>
+                        <ul>
+                            <% getLembrete.forEach((itemX) => { %>
+                                <% if(itemX.data[0] == data[0] && itemX.data[1] == data[1]){ %>
+                                    <li>
+                                        <%=itemX.nome %>
+                                    </li>
+                                <% } %>
+                            <% }) %>
+                        </ul>
+                            
+                        <% data[0] += 1 %>
+                        <% j = getLembrete.length + 1 %>
+
+
+                    <% } %>
+                    <br>
+                    <br>
+
+                
+                <% }else{ %>
+                    ?
+                    <% cont +=1 %>
+                    
+                <% } %>
+
+              
+
+            <% } %>
+            
+            <% if(data[0]>31){ %>
+                <% 
+                    data[0] = 1;
+                    data[1] += 1    
+                %>
+            <% } %>     
+
+            <% if(cont == getLembrete.length){ %>
+                <% data[0] += 1 %>
+                não existe
+            <% } %>
+
+            <% cont = 0 %>
+            
+            
+            <br><br>
+        <% } %>
+
+
+
     </div>
+
 
 
 
 
 </body>
 </html>
-
