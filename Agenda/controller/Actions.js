@@ -1,24 +1,14 @@
 const DBroot = require("../model/model_BD_Lembrete")
 
-const formatData = (Lembretes) => {
-    
-    const dateNow = new Date().toLocaleDateString().split("/")
 
+const formatData = (Lembretes) => {
 
     let lembretes = JSON.parse(JSON.stringify(Lembretes))
     lembretes.forEach((item) => {
         item.data = item.data.slice(0,10).split("-").reverse()
     })
 
-    lembretes.forEach((item) => {
-        if(item.data[0] < dateNow[0] && item.data[1] <= dateNow[1]){
-            return res.redirect("")
-        }
-    })
-    
-
     return lembretes
-
 }
 
 const display = async (req,res) => {
@@ -27,7 +17,6 @@ const display = async (req,res) => {
     const getLembrete = formatData(lembretes)
     const dateNow = new Date().toLocaleDateString().split("/")
 
-    
 
     return res.render("lembretes.ejs", {
         getLembrete ,dateNow
