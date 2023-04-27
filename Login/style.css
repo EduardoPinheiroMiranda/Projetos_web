@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+  font-size: 62.5%;
+}
+
+.page{
+  width: 35rem;
+  margin: 0 auto;
+}
+
+main .card_body{
+  border: 1px solid red;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: grid;
+}
+
+
+main .card{
+  border: 1px solid blue;
+  height: 35rem;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  
+}
+
+main h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+}
+
+main .social{
+  display: flex;
+  gap: 2rem;
+}
+
+.social a{
+  background-color: white;
+  font-size: 1.2rem;
+
+  display: grid;
+  place-items: center;
+
+  width: 2rem;
+  padding: 0.3rem;
+
+  border-radius: 100%;
+  box-shadow: -1px 1px 5px black;
+  cursor: pointer;
+}
+.social a:nth-child(1){
+  color: #3b5998;
+}
+
+.social a:nth-child(3){
+  color:#0e76a8;
+}
+
+main p{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+main form{
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+}
+
+form input{
+    background-color: rgb(240, 240, 240);
+    
+    padding: 0.8rem;
+    border: none;
+    
+}
+
+form button{
+    background-color: rgb(46, 46, 207);
+    color: white;
+
+    width: 10rem;
+    padding: 0.6rem;
+
+    border: none;
+    border-radius: 2rem;
+}
+form a{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+.inf{
+    background-image: linear-gradient(90deg, rgb(151, 151, 228),rgb(43, 40, 168));
+    color: white;
+}
+.body_inf{
+    width: 23rem;
+
+    display: grid;
+    place-items: center;
+    gap: 3rem;
+}
+.body_inf button{
+    background-color: transparent;
+    color: white;
+
+    padding: 0.8rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
