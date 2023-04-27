@@ -3,26 +3,30 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 :root{
   font-size: 62.5%;
 }
-
-.page{
-  width: 35rem;
-  margin: 0 auto;
+body{
+  background-color:rgb(240,240,240);
 }
 
+
+.page{
+  background-color: white;
+  width: 35rem;
+  margin: 0 auto;
+
+
+}
+
+
 main .card_body{
-  border: 1px solid red;
   padding: 2rem;
   border-radius: 1rem;
   display: grid;
 }
 
-
 main .card{
-  border: 1px solid blue;
   height: 35rem;
   
   display: flex;
@@ -30,7 +34,6 @@ main .card{
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  
 }
 
 main h1{
@@ -60,7 +63,6 @@ main .social{
 .social a:nth-child(1){
   color: #3b5998;
 }
-
 .social a:nth-child(3){
   color:#0e76a8;
 }
@@ -82,9 +84,7 @@ form input{
     
     padding: 0.8rem;
     border: none;
-    
 }
-
 form button{
     background-color: rgb(46, 46, 207);
     color: white;
@@ -94,6 +94,7 @@ form button{
 
     border: none;
     border-radius: 2rem;
+    cursor: pointer;
 }
 form a{
     font-size: 1.2rem;
@@ -101,22 +102,63 @@ form a{
 }
 
 
-.inf{
-    background-image: linear-gradient(90deg, rgb(151, 151, 228),rgb(43, 40, 168));
-    color: white;
-}
-.body_inf{
-    width: 23rem;
+.instruction{
+    text-align: center;
+    font-weight: 600;
+
+    width: 25rem;
 
     display: grid;
     place-items: center;
     gap: 3rem;
+  
+    animation-name: instrucao;
+    animation-duration: 600ms;
+  
+  
 }
-.body_inf button{
+.instruction button{
     background-color: transparent;
     color: white;
 
     padding: 0.8rem;
     border: 1px solid white;
     border-radius: 2rem;
+  
+    cursor: pointer;
+}
+
+.instruction p{
+    font-weight: 600;
+}
+
+
+.card_body .instruction:nth-child(1){
+  display: none;
+}
+
+
+main .card_body:nth-child(2){
+    background: rgb(0,126,240);
+    background: linear-gradient(90deg, rgba(0,126,240,1) 0%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%);
+    color: white; 
+    
+    position: absolute;
+    top: 35rem;
+    width: 35rem;
+
+    transition: all 600ms;
+
+}
+
+
+@keyframes instrucao{
+  0%{
+    opacity: 0;
+    transform: translatex(-20px)
+  }
+  100%{
+    opacity: 1;
+    transform: translatex(0px)
+  }
 }
