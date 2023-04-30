@@ -1,7 +1,7 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 :root{
   font-size: 62.5%;
@@ -13,12 +13,15 @@ body{
 
 .page{
   background-color: white;
+
   width: 35rem;
-  margin: 0 auto;
-
-
+  border-radius: 1rem;
+  margin: 2.5rem auto;
 }
 
+main{
+  position: relative;
+}
 
 main .card_body{
   padding: 2rem;
@@ -28,7 +31,7 @@ main .card_body{
 
 main .card{
   height: 35rem;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +60,7 @@ main .social{
   padding: 0.3rem;
 
   border-radius: 100%;
-  box-shadow: -1px 1px 5px black;
+  box-shadow: .1px .1px 4px black;
   cursor: pointer;
 }
 .social a:nth-child(1){
@@ -80,85 +83,113 @@ main form{
 }
 
 form input{
-    background-color: rgb(240, 240, 240);
-    
-    padding: 0.8rem;
-    border: none;
+  background-color: rgb(240, 240, 240);
+  
+  padding: 0.8rem;
+  border: none;
 }
 form button{
-    background-color: rgb(46, 46, 207);
-    color: white;
+  background-color: rgb(46, 46, 207);
+  color: white;
 
-    width: 10rem;
-    padding: 0.6rem;
+  width: 10rem;
+  padding: 0.6rem;
 
-    border: none;
-    border-radius: 2rem;
-    cursor: pointer;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
 }
+form button:hover{
+  background-color: rgb(26, 26, 255);
+}
+
 form a{
-    font-size: 1.2rem;
-    cursor: pointer;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 
 .instruction{
-    text-align: center;
-    font-weight: 600;
+  text-align: center;
+  font-weight: 600;
 
-    width: 25rem;
+  width: 25rem;
 
-    display: grid;
-    place-items: center;
-    gap: 3rem;
-  
-    animation-name: instrucao;
-    animation-duration: 600ms;
-  
-  
+  display: grid;
+  place-items: center;
+  gap: 3rem;
+
+  animation-name: mostrarInstrucao;
+  animation-duration: 600ms;
 }
 .instruction button{
-    background-color: transparent;
-    color: white;
+  background-color: transparent;
+  color: white;
 
-    padding: 0.8rem;
-    border: 1px solid white;
-    border-radius: 2rem;
-  
-    cursor: pointer;
+  padding: 0.8rem;
+  border: 1px solid white;
+  border-radius: 2rem;
+
+  cursor: pointer;
+}
+.instruction button:hover{
+  background-color:  rgba(0,255,255,0.3);
 }
 
 .instruction p{
-    font-weight: 600;
+  font-weight: 600;
 }
 
-
 .card_body .instruction:nth-child(1){
-  display: none;
+  transform: translateX(2rem);
+  visibility: collapse;
 }
 
 
 main .card_body:nth-child(2){
-    background: rgb(0,126,240);
-    background: linear-gradient(90deg, rgba(0,126,240,1) 0%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%);
-    color: white; 
-    
-    position: absolute;
-    top: 35rem;
-    width: 35rem;
+  background: rgb(0,126,240);
+  background: linear-gradient(90deg, rgba(0,126,240,1) 0%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%, rgba(0,212,255,1) 100%);
+  color: white; 
+  
+  position: absolute;
+  top: 35rem;
+  width: 35rem;
 
-    transition: all 600ms;
+  transition: all 600ms;
+}
 
+.mover{
+  transform: translatey(-35rem);
+}
+.ocultarInstrucao{
+  transition: all 600ms;
+  transform: translateX(-2rem);
+}
+
+.mostrarInstrucao{
+  transition: all 600ms;
+  visibility: hidden;
+  transform: translateX(0rem);
 }
 
 
-@keyframes instrucao{
+
+@keyframes mostrarInstrucao{
   0%{
     opacity: 0;
-    transform: translatex(-20px)
+    transform: translatex(-2rem)
   }
   100%{
     opacity: 1;
-    transform: translatex(0px)
+    transform: translatex(0rem)
   }
+}
+
+@keyframes moverInstrucao{
+  0%{
+  }
+  100%{
+    transform: translatey(-35rem)
+  }
+
 }
