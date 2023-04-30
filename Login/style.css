@@ -8,6 +8,10 @@
 }
 body{
   background-color:rgb(240,240,240);
+
+  display: grid;
+  place-items: center;
+  
 }
 
 
@@ -16,7 +20,9 @@ body{
 
   width: 35rem;
   border-radius: 1rem;
-  margin: 2.5rem auto;
+  margin: 3rem auto;
+
+ 
 }
 
 main{
@@ -119,8 +125,11 @@ form a{
   place-items: center;
   gap: 3rem;
 
+
   animation-name: mostrarInstrucao;
   animation-duration: 600ms;
+
+  transition: all 600ms;
 }
 .instruction button{
   background-color: transparent;
@@ -140,11 +149,16 @@ form a{
   font-weight: 600;
 }
 
-.card_body .instruction:nth-child(1){
+.display{
+  transition: all 600ms;
+  display: none;
   transform: translateX(2rem);
-  visibility: collapse;
+  
 }
 
+.card_body .card:nth-child(2){
+  position: relative;
+}
 
 main .card_body:nth-child(2){
   background: rgb(0,126,240);
@@ -152,24 +166,42 @@ main .card_body:nth-child(2){
   color: white; 
   
   position: absolute;
-  top: 35rem;
+  top: 0rem;
   width: 35rem;
 
   transition: all 600ms;
 }
 
 .mover{
-  transform: translatey(-35rem);
-}
-.ocultarInstrucao{
-  transition: all 600ms;
-  transform: translateX(-2rem);
+  transform: translatey(35rem);
 }
 
-.mostrarInstrucao{
+.ocultarInstrucao{
   transition: all 600ms;
-  visibility: hidden;
-  transform: translateX(0rem);
+  display: none;
+  transform: translatey(-5rem);
+  
+}
+
+@media(min-width:770px){
+  body{
+    height: 100vh;
+  }
+  .page{
+    width: 70rem;
+  }
+  main .card_body{
+    display: flex;
+  }
+  main .card{
+    width: 35rem;
+  }
+  .mover{
+    transform: translateX(35rem);
+  }
+  .ocultarInstrucao{
+    transform: translateY(-5rem);
+  }
 }
 
 
@@ -177,19 +209,13 @@ main .card_body:nth-child(2){
 @keyframes mostrarInstrucao{
   0%{
     opacity: 0;
-    transform: translatex(-2rem)
+    transform: translatex(-2rem);
   }
   100%{
     opacity: 1;
-    transform: translatex(0rem)
+    transform: translatex(0rem);
   }
 }
 
-@keyframes moverInstrucao{
-  0%{
-  }
-  100%{
-    transform: translatey(-35rem)
-  }
 
-}
+
